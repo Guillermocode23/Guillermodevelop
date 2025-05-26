@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>GuillermoDevelop_</title>
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+  <div class="loader"></div>
+</div>
+
+<!-- EmailJS SDK (debe ir fuera del bloque <script>) -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script>
+  // Inicializar EmailJS (reemplaza con tu Public Key real)
+  (function () {
+    emailjs.init("fA6KBwnO6-zBSMQFp"); // ← Reemplaza esto
+  })();
+
+  // Mostrar el formulario
+  function mostrarFormulario() {
+    const contenedor = document.getElementById('formulario-contenedor');
+    contenedor.style.display = contenedor.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Lógica al cargar la página
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("preloader");
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 0.5s ease";
+    setTimeout(() => loader.style.display = "none", 500);
+
+    // Añadir fade-in a la sección principal al cargar
+    document.querySelector('.home').classList.add('fade-in');
+  });
+
+  // Enviar el formulario
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('formulario-correo');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', this) // ← Reemplaza con tus datos reales
+          .then(function () {
+            alert('¡Mensaje enviado con éxito!');
+            form.reset();
+            document.getElementById('formulario-contenedor').style.display = 'none';
+          }, function (error) {
+            alert('Hubo un error. Intenta más tarde.');
+            console.error('EmailJS error:', error);
+          });
+      });
+    }
+  });
+</script>
+
+
+  
+    <header>
+        <a href="#" class="logo">GuillermoDevelop_</a>
+
+        <nav>
+            <a href="#"> Home</a>
+            <a href="#servicios"  >Servicios</a>
+            <a href="#skills" >Habilidades</a>
+            <a href="#school" >Educacion</a>
+        
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="perfil.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hola soy<span> Guillermo</span></h1>
+            <h3 class="typing-text">Soy un <span></span></h3>
+            <p>Mi experiencia se centra principalmente en el desarrollo backend utilizando Java con el framework Spring Boot, lo que me permite construir aplicaciones robustas y escalables.
+
+Además, tengo conocimientos sólidos en frontend; domino CSS para la maquetación y el diseño de interfaces de usuario, y JavaScript para la interactividad y la lógica del lado del cliente.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/guillermo-torres-041798190/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Guillermocode23/Guillermocode23"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/guillermo_wright23?igsh=MTh1a2xkcm14cTdhNQ=="><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+<button onclick="mostrarFormulario()" class="btn">Contáctame</button>
+
+<!-- Formulario oculto -->
+<div id="formulario-contenedor" style="display: none;">
+  <h2>Contáctame</h2>
+  <form id="formulario-correo">
+    <input type="text" name="user_name" placeholder="Tu nombre" required>
+    <input type="email" name="user_email" placeholder="Tu correo electrónico" required>
+    <textarea name="message" placeholder="Escribe tu mensaje aquí" required></textarea>
+    <button type="submit" class="btn">Enviar Mensaje</button>
+  </form>
+</div>
+
+            
+        
+    </section>
+
+    <!-- Botón para mostrar el formulario -->
+     
+
+
+
+<section id="servicios">
+ <section class="services">
+        <h2>Mis Servicios</h2>
+        <div class="services-container">
+            <div class="service-box">
+                <i class="fas fa-search"></i>
+                <h3>Posicionamiento SEO</h3>
+                <p>Optimización para motores de búsqueda para mejorar la visibilidad de tu sitio web en Google y atraer más tráfico orgánico de calidad.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-store"></i>
+                <h3>Plataforma de Comercio</h3>
+                <p>Diseño y desarrollo de tiendas en línea personalizadas, con catálogos, pagos y paneles de administración fáciles de usar.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-toolbox"></i>
+                <h3>Integración con Herramientas</h3>
+                <p>Conecto tu plataforma con herramientas como pasarelas de pago, APIs externas, CRMs y más, para automatizar y escalar tu negocio.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+<section id="skills">
+   <section class="skills">
+  <h3 align="center">Lenguajes y Herramientas</h3>
+
+  <p align="center">
+    <a href="https://www.java.com" target="_blank" rel="noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/>
+    </a>
+    <a href="https://spring.io/" target="_blank" rel="noreferrer">
+      <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="Spring Boot" width="40" height="40"/>
+    </a>
+    <a href="https://www.mysql.com/" target="_blank" rel="noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" width="40" height="40"/>
+    </a>
+    <a href="https://www.w3schools.com/html/" target="_blank" rel="noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5" width="40" height="40"/>
+    </a>
+    <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" width="40" height="40"/>
+    </a>
+    <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
+      <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" width="40" height="40"/>
+    </a>
+    <a href="https://www.linux.org/" target="_blank" rel="noreferrer">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" width="40" height="40"/>
+    </a>
+    <a href="https://postman.com" target="_blank" rel="noreferrer">
+      <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="40" height="40"/>
+    </a>
+  </p>
+
+  <div class="projects-connection">
+   
+    <p>
+      Mis proyectos están diseñados para resolver problemas reales que enfrentan los negocios modernos, especialmente en la gestión eficiente de inventarios, productos y proveedores.
+    </p>
+    <p>
+      <strong>Proyecto <code>crud_java</code>:</strong> Un sistema con Java y MySQL para administrar productos y proveedores, ideal para tiendas o negocios que necesitan gestionar su stock y catálogo.
+    </p>
+    <p>
+      <strong>Proyecto <code>crud-spring</code>:</strong> Una aplicación basada en Spring Boot que expone una API REST, facilitando la integración con sitios web y aplicaciones modernas, permitiendo gestionar productos desde el navegador y controlar inventarios de forma dinámica.
+    </p>
+    <p>
+      Estas soluciones permiten construir sistemas de catálogo en línea, paneles administrativos y dashboards con estadísticas que impulsan la digitalización y eficiencia en negocios de cualquier tamaño.
+    </p>
+  </div>
+</section>
+
+
+
+<section id="school"><section class="timeline">
+  <h3 align="center">Mi Educación</h3>
+  <div class="timeline-container">
+
+    <div class="timeline-item">
+      <div class="timeline-circle"></div>
+      <div class="timeline-date">2018 - 2021</div>
+      <div class="timeline-content">
+        <h4>Técnico Eléctrico</h4>
+        <p><strong>Cecyt 4 "Lázaro Cárdenas"</strong></p>
+        <p>Aprendizaje en habilidades técnicas de electricidad y desarrollo con <strong>Java SE</strong>.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-circle"></div>
+      <div class="timeline-date">2022 - Actualidad</div>
+      <div class="timeline-content">
+        <h4>Licenciatura en Ciencias de la Informática</h4>
+        <p><strong>UPIICSA IPN</strong></p>
+        <p>Enfoque en desarrollo web usando <strong>Spring Boot</strong> y tecnologías modernas: Java, HTML, CSS, MySQL, Git, Linux, Postman, entre otras.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+</body>
+</html>
